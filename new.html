@@ -1,0 +1,55 @@
+<body style="background-color: lightgray; font-family: Arial;">
+
+  <div style="background-color: white; padding: 20px; width: 300px; margin: auto; text-align: center;">
+
+    <h1>Danny</h1>
+    <h2>Center Back</h2>
+
+    <table style="margin: auto; margin-top: 10px;">
+      <tr>
+        <td>Matches Played</td>
+        <td id="matches">250</td>
+      </tr>
+      <tr>
+        <td>Tackles Won</td>
+        <td id="tackles">95</td>
+      </tr>
+      <tr>
+        <td>Goals</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>Interceptions</td>
+        <td>123</td>
+      </tr>
+      <tr>
+        <td>Clearances</td>
+        <td>89</td>
+      </tr>
+    </table>
+
+    <br>
+
+    <button onclick="updateStats()">Update Stats</button>
+     <button onclick="resetStats()">Reset Stats</button>
+
+  </div>
+
+ <script>
+  function updateStats() {
+    // Matches +1
+    let currentMatches = document.getElementById("matches").innerText;
+    document.getElementById("matches").innerText = Number(currentMatches) + 1;
+
+    // Tackles +2
+    let currentTackles = document.getElementById("tackles").innerText;
+    document.getElementById("tackles").innerText = Number(currentTackles) + 2;
+  }
+
+  function resetStats() {
+    document.getElementById("matches").innerText = 250;
+    document.getElementById("tackles").innerText = 95;
+  }
+</script>
+
+</body>
