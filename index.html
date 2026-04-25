@@ -97,18 +97,14 @@
     document.getElementById("tackles").innerText = 777;
   }
 
-   function getQuote() {
-  fetch("https://zenquotes.io/api/random")
+function getQuote() {
+  fetch("https://api.adviceslip.com/advice")
     .then(response => response.json())
     .then(data => {
-      console.log(data); 
-
-      document.getElementById("quote").innerText =
-        data[0].q + " — " + data[0].a;
+      document.getElementById("quote").innerText = data.slip.advice;
     })
     .catch(error => {
-      console.log(error);
-      document.getElementById("quote").innerText = "Failed to load quote.";
+      document.getElementById("quote").innerText = "Failed to load advice.";
     });
 }
 </script>
