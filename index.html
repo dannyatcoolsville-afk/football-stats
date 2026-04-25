@@ -72,14 +72,14 @@
     
     <button class="btn" onclick="updateStats()">Update Stats</button>
     <button class="btn secondary" onclick="resetStats()">Reset Stats</button>
-    
-  </div>
-
-  <p id="quote" style="margin-top: 20px; font-style: italic;">
+     <p id="quote" style="margin-top: 20px; font-style: italic;">
   Click to get a quote ⚽
 </p>
 
   <button class="btn" onclick="getQuote()">Get Motivation</button>
+    
+  </div>
+
   
  <script>
   function updateStats() {
@@ -97,7 +97,6 @@
     document.getElementById("tackles").innerText = 777;
   }
 
-   <script>
   function getQuote() {
     fetch("https://api.quotable.io/random")
       .then(response => response.json())
@@ -108,7 +107,6 @@
         document.getElementById("quote").innerText = "Failed to load quote.";
       });
   }
-</script>
 </script>
 
 </body>
