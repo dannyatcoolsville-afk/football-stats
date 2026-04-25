@@ -75,6 +75,12 @@
     
   </div>
 
+  <p id="quote" style="margin-top: 20px; font-style: italic;">
+  Click to get a quote ⚽
+</p>
+
+  <button class="btn" onclick="getQuote()">Get Motivation</button>
+  
  <script>
   function updateStats() {
     // Matches +1
@@ -90,6 +96,19 @@
     document.getElementById("matches").innerText = 999;
     document.getElementById("tackles").innerText = 777;
   }
+
+   <script>
+  function getQuote() {
+    fetch("https://api.quotable.io/random")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("quote").innerText = data.content;
+      })
+      .catch(error => {
+        document.getElementById("quote").innerText = "Failed to load quote.";
+      });
+  }
+</script>
 </script>
 
 </body>
