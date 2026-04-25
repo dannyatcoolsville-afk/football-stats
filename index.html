@@ -97,16 +97,17 @@
     document.getElementById("tackles").innerText = 777;
   }
 
-  function getQuote() {
-    fetch("https://zenquotes.io/api/random")
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("quote").innerText = data.content;
-      })
-      .catch(error => {
-        document.getElementById("quote").innerText = "Failed to load quote.";
-      });
-  }
+   function getQuote() {
+  fetch("https://zenquotes.io/api/random")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("quote").innerText =
+        data[0].q + " — " + data[0].a;
+    })
+    .catch(error => {
+      document.getElementById("quote").innerText = "Failed to load quote.";
+    });
+}
 </script>
 
 </body>
