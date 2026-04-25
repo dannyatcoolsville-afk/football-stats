@@ -1,3 +1,28 @@
+<style>
+  .btn {
+    background-color: #222;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 6px;
+    transition: 0.2s;
+  }
+
+  .btn.secondary {
+    background-color: #444;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+</style>
+
 <body style="background-color: #ff9800; font-family: 'Segoe UI', Arial, sans-serif;">
 
   <div style="
@@ -43,38 +68,9 @@
     </table>
 
     <br>
-
-    <button onclick="updateStats()" style="
-  background-color: #222;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin: 6px;
-  transition: 0.2s;
-  .btn:active {
-  transform: translateY(1px);
-}
-">
-  Update Stats
-</button>
-
-    <button onclick="resetStats()" style="
-  background-color: #444;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin: 6px;
-  transition: 0.2s;
-  .btn:active {
-  transform: translateY(1px);
-}
-">
-  Reset Stats
-</button>
+    
+    <button class="btn" onclick="updateStats()">Update Stats</button>
+    <button class="btn secondary" onclick="resetStats()">Reset Stats</button>
     
   </div>
 
