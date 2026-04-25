@@ -71,12 +71,18 @@
     <br>
     
     <button class="btn" onclick="updateStats()">Update Stats</button>
+    
     <button class="btn secondary" onclick="resetStats()">Reset Stats</button>
+    
      <p id="quote" style="margin-top: 20px; font-style: italic;">
   Click to get a quote ⚽
 </p>
-
   <button class="btn" onclick="getQuote()">Get Motivation</button>
+    
+    <p id="player" style="margin-top: 20px;">
+  Click to get a player ⚽
+</p>
+<button class="btn" onclick="getPlayer()">Get Player</button>
     
   </div>
 
@@ -105,6 +111,27 @@ function getQuote() {
     })
     .catch(error => {
       document.getElementById("quote").innerText = "Failed to load advice.";
+    });
+}
+
+   function getPlayer() {
+  fetch("https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.json")
+    .then(res => res.json())
+    .then(data => {
+      console.log(data); // 👈 important for learning
+
+      // pick a random match
+      let matches = data.matches;
+      let randomMatch = matches[Math.floor(Math.random() * matches.length)];
+
+      let team1 = randomMatch.team1;
+      let team2 = randomMatch.team2;
+
+      document.getElementById("player").innerText =
+        team1 + " vs " + team2;
+    })
+    .catch(err => {
+      document.getElementById("player").innerText = "Failed to load data.";
     });
 }
 </script>
