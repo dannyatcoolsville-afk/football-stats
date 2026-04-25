@@ -79,10 +79,10 @@
 </p>
   <button class="btn" onclick="getQuote()">Get Motivation</button>
     
-    <p id="player" style="margin-top: 20px;">
-  Click to get a player ⚽
+    <p id="match" style="margin-top: 20px;">
+  Click to get a match
 </p>
-<button class="btn" onclick="getPlayer()">Get Player</button>
+<button class="btn" onclick="getPlayer()">Get Match</button>
     
   </div>
 
@@ -114,7 +114,7 @@ function getQuote() {
     });
 }
 
-   function getPlayer() {
+   function getMatch() {
   fetch("https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.json")
     .then(res => res.json())
     .then(data => {
@@ -127,11 +127,11 @@ function getQuote() {
       let team1 = randomMatch.team1;
       let team2 = randomMatch.team2;
 
-      document.getElementById("player").innerText =
+      document.getElementById("match").innerText =
         team1 + " vs " + team2;
     })
     .catch(err => {
-      document.getElementById("player").innerText = "Failed to load data.";
+      document.getElementById("match").innerText = "Failed to load data.";
     });
 }
 </script>
