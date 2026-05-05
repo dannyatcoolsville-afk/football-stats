@@ -82,7 +82,7 @@
     <p id="match" style="margin-top: 20px;">
   Click to get a match
 </p>
-<button class="btn" onclick="getMatch()">Get Match</button>
+<button class="btn" onclick="getRandomMatchFromAPI()">Get Match</button>
     
   </div>
 
@@ -114,7 +114,7 @@ function getQuote() {
     });
 }
 
-   function getMatch() {
+   function getRandomMatchFromAPI() {
   fetch("https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.json")
     .then(res => res.json())
     .then(data => {
