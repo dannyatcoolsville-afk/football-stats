@@ -88,21 +88,21 @@
 
   
  <script>
-  function updateStats() {
-    // Matches +1
-    let currentMatches = document.getElementById("matches").innerText;
-    document.getElementById("matches").innerText = Number(currentMatches) + 1;
+function updateStats() {
+  let matches = Number(document.getElementById("matches").innerText) + 1;
+  let tackles = Number(document.getElementById("tackles").innerText) + 2;
 
-    // Tackles +2
-    let currentTackles = document.getElementById("tackles").innerText;
-    document.getElementById("tackles").innerText = Number(currentTackles) + 2;
-  }
+  document.getElementById("matches").innerText = matches;
+  document.getElementById("tackles").innerText = tackles;
 
-  function resetStats() {
-    document.getElementById("matches").innerText = 999;
-    document.getElementById("tackles").innerText = 777;
-  }
+  let player = {
+    matches: matches,
+    tackles: tackles
+  };
 
+  localStorage.setItem("playerStats", JSON.stringify(player));
+}
+   
 function getQuote() {
   fetch("https://api.adviceslip.com/advice")
     .then(response => response.json())
@@ -141,6 +141,19 @@ function getQuote() {
     matches: 250
   };
 }
+
+function loadStats() {
+  let data = localStorage.getItem("playerStats");
+
+  if (data) {
+    let player = JSON.parse(data);
+
+    document.getElementById("matches").innerText = player.matches;
+    document.getElementById("tackles").innerText = player.tackles;
+  }
+}
+
+loadStats();
 
 let player = getPlayer();
 
